@@ -1,6 +1,9 @@
 package com.example.myapplication
 
+import android.app.Activity
+import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,8 +18,7 @@ class MainFragment: Fragment(){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        if(arguments == null)  tv_city.text = "Ваш город" else tv_city?.text = arguments?.getString("cityName")
+        if(arguments!=null) tv_city?.text = arguments?.getString("cityName")
 
         btn_select.setOnClickListener {
             activity?.supportFragmentManager
@@ -26,4 +28,9 @@ class MainFragment: Fragment(){
                     ?.commit()
         }
     }
+    fun setNameCity(item: String){
+        tv_city?.text = item
+    }
+
+
 }
